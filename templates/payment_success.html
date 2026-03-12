@@ -1,0 +1,2 @@
+{% extends 'base.html' %}
+{% block content %}<section class="card"><h1>Payment Successful ✅</h1><p>Transaction: {{ payment.upi_transaction_id or 'N/A' }}</p><p>Listener: {{ payment.listener_name or 'Assigned soon' }}</p><p>Session: {{ payment.session_date }} {{ payment.session_time }}</p><a class="btn" href="{{ url_for('dashboard') }}">Go to Dashboard</a></section>{% endblock %}

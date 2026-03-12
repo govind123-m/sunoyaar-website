@@ -1,0 +1,2 @@
+{% extends 'admin_base.html' %}
+{% block content %}<section class="card"><h1>Payments</h1><table><tr><th>ID</th><th>User</th><th>Amount</th><th>Txn</th><th>Status</th><th>Date</th></tr>{% for p in payments %}<tr><td>{{ p.id }}</td><td>{{ p.full_name }}</td><td>₹{{ p.amount }}</td><td>{{ p.upi_transaction_id }}</td><td>{{ p.status }}</td><td>{{ p.paid_at|datefmt }}</td></tr>{% endfor %}</table></section>{% endblock %}

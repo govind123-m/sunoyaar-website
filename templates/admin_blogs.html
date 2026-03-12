@@ -1,0 +1,5 @@
+{% extends 'admin_base.html' %}
+{% block content %}
+<section class="card"><h1>Manage Blogs</h1><form method="post" class="form-grid"><input name="title" placeholder="Title" required><input name="slug" placeholder="Slug" required><input name="author" placeholder="Author"><textarea name="excerpt" placeholder="Excerpt"></textarea><textarea name="content" placeholder="Content" required></textarea><button>Publish</button></form></section>
+<section class="card"><table><tr><th>Title</th><th>Slug</th><th>Action</th></tr>{% for b in blogs %}<tr><td>{{ b.title }}</td><td>{{ b.slug }}</td><td><form method="post" action="{{ url_for('admin_delete_blog', blog_id=b.id) }}"><button>Delete</button></form></td></tr>{% endfor %}</table></section>
+{% endblock %}

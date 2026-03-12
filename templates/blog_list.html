@@ -1,0 +1,2 @@
+{% extends 'base.html' %}
+{% block content %}<h1>Blogs</h1><div class="cards-3">{% for b in blogs %}<article class="card"><h3>{{ b.title }}</h3><p>{{ b.excerpt }}</p><a href="{{ url_for('blog_detail', slug=b.slug) }}">Read</a></article>{% else %}<p>No posts.</p>{% endfor %}</div>{% endblock %}

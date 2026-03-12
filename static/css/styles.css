@@ -1,0 +1,23 @@
+:root { --bg: linear-gradient(135deg, #fce7f3, #dbeafe, #dcfce7); --card: #ffffffd9; --text: #1f2937; --accent: #7c3aed; }
+* { box-sizing: border-box; font-family: Inter, Arial, sans-serif; }
+body { margin: 0; color: var(--text); background: var(--bg) fixed; }
+.container { width: min(1100px, 92%); margin: 24px auto 48px; }
+.navbar { display: flex; justify-content: space-between; align-items: center; padding: 14px 4%; background: #ffffffd0; position: sticky; top: 0; backdrop-filter: blur(8px); }
+.brand { font-size: 1.3rem; text-decoration: none; color: var(--accent); font-weight: 700; }
+.nav-links { display: flex; gap: 14px; flex-wrap: wrap; }
+.nav-links a { text-decoration: none; color: #334155; font-weight: 600; }
+.card { background: var(--card); padding: 20px; border-radius: 16px; box-shadow: 0 10px 25px #00000010; margin: 12px 0; }
+.hero { display: grid; grid-template-columns: 1.2fr 1fr; gap: 18px; align-items: center; }
+.form-grid { display: grid; gap: 10px; }
+input, select, textarea, button { width: 100%; padding: 11px; border: 1px solid #cbd5e1; border-radius: 10px; font-size: 14px; }
+button, .btn { background: linear-gradient(90deg, #8b5cf6, #ec4899); color: #fff; border: none; cursor: pointer; text-decoration: none; display: inline-block; text-align: center; }
+.stats, .cards-3 { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); }
+.flash-wrap { display: grid; gap: 8px; }
+.flash { padding: 10px 12px; border-radius: 8px; }
+.flash.success { background: #dcfce7; } .flash.danger { background: #fee2e2; } .flash.warning { background: #fef9c3; } .flash.info { background: #dbeafe; }
+.footer { text-align: center; padding: 20px; color: #475569; }
+.qr { border-radius: 12px; border: 1px solid #ddd; margin: 8px 0; }
+.chat-box { max-height: 330px; overflow-y: auto; background: #fff; border-radius: 10px; padding: 10px; border: 1px solid #e2e8f0; }
+table { width: 100%; border-collapse: collapse; overflow: hidden; }
+th, td { border: 1px solid #e5e7eb; padding: 8px; text-align: left; }
+@media (max-width: 860px) { .hero { grid-template-columns: 1fr; } }

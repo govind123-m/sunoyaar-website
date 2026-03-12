@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% block title %}SunoYaar - Anonymous Emotional Support{% endblock %}
+{% block content %}
+<section class="hero card">
+  <div>
+    <h1>Talk Freely. Heal Deeply.</h1>
+    <p>Book an anonymous session with a trained listener who truly listens.</p>
+  </div>
+  <form action="{{ url_for('book') }}" method="post" class="form-grid">
+    <select name="listener_id">
+      <option value="">Any available listener</option>
+      {% for l in listeners %}<option value="{{ l.id }}">{{ l.name }} - {{ l.specialty }}</option>{% endfor %}
+    </select>
+    <input type="date" name="session_date" required />
+    <input type="time" name="session_time" required />
+    <select name="duration" required>
+      <option value="30">30 min</option><option value="60">60 min</option><option value="90">90 min</option>
+    </select>
+    <select name="service_mode" required>
+      <option value="online">Online</option><option value="offline">Offline</option>
+    </select>
+    <input type="text" name="notes" placeholder="Optional note" />
+    <button type="submit">Book Now</button>
+  </form>
+</section>
+
+<section class="stats">
+  <div class="card"><h3>{{ stats.members }}+</h3><p>Community Members</p></div>
+  <div class="card"><h3>{{ stats.sessions }}+</h3><p>Sessions Completed</p></div>
+  <div class="card"><h3>{{ stats.listeners }}+</h3><p>Active Listeners</p></div>
+  <div class="card"><h3>{{ stats.rating }}</h3><p>Average Rating</p></div>
+</section>
+
+<section>
+  <h2>Listener Profiles</h2>
+  <div class="cards-3">
+    {% for l in listeners %}
+      <article class="card"><h4>{{ l.name }}</h4><p>{{ l.specialty }}</p><small>{{ l.bio }}</small></article>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="cards-3">
+  <article class="card"><h3>Why choose SunoYaar?</h3><p>Anonymous support, verified listeners, affordable sessions, and a caring community.</p></article>
+  <article class="card"><h3>Testimonials</h3><p>“I felt heard for the first time in months.” — Anonymous User</p></article>
+  <article class="card"><h3>FAQ</h3><p><b>Is it anonymous?</b> Yes. <b>Is this therapy?</b> No, emotional peer support.</p></article>
+</section>
+
+<section>
+  <h2>Blog Preview</h2>
+  <div class="cards-3">
+    {% for b in blogs %}
+      <article class="card"><h4>{{ b.title }}</h4><p>{{ b.excerpt }}</p><a href="{{ url_for('blog_detail', slug=b.slug) }}">Read more</a></article>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="card">
+  <h2>Contact Us</h2>
+  <form action="{{ url_for('contact') }}" method="post" class="form-grid">
+    <input name="name" placeholder="Name" required>
+    <input name="email" type="email" placeholder="Email" required>
+    <textarea name="message" placeholder="Message" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+</section>
+{% endblock %}

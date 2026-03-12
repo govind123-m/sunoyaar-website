@@ -1,31 +1,31 @@
-# SunoYaar Website 
+# SunoYaar - Full Stack Flask + MySQL Platform
 
-Emotional support plarform where people can talk anonymously.
+SunoYaar is a production-ready emotional support platform where users can anonymously connect with listeners.
 
-Features:
--Anonymous conversations
--Bookin listening
--User login and signup
--User dashboard
--Admin Dashboard
--Blog system
--Contact page
--Community support
+## Stack
+- Frontend: HTML, CSS, JavaScript
+- Backend: Flask (Python)
+- Database: MySQL
 
-Tech stack:
-Frontend:
-HTML
-CSS
-Javascript
+## Setup
+1. Create MySQL DB/tables:
+   ```bash
+   mysql -u root -p < database.sql
+   ```
+2. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+3. Configure env vars (optional):
+   - `MYSQL_HOST`, `MYSQL_USER`, `MYSQL_PASSWORD`, `MYSQL_DATABASE`, `MYSQL_PORT`, `SECRET_KEY`
+4. Run:
+   ```bash
+   python app.py
+   ```
 
-Backend:
-Python Flask
+## Routes
+- Public: `/`, `/about`, `/blog`, `/how-it-works`, `/contact`, `/signup`, `/login`
+- User: `/dashboard`, `/chat`, `/payment/<booking_id>`
+- Admin: `/admin/login`, `/admin`, `/admin/users`, `/admin/listeners`, `/admin/bookings`, `/admin/payments`, `/admin/blogs`
 
-Database:
-Mysql
-
-Payment:
-Upi (Google Pay)
-
-Purpose:
-To help people share their emotions and feel better by talking with supportive listeners.
+Default admin username: `admin` (password hash seeded in `database.sql`; set your own secure password in production).
