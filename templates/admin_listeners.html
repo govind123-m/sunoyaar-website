@@ -1,0 +1,5 @@
+{% extends 'admin_base.html' %}
+{% block content %}
+<section class="card"><h1>Manage Listeners</h1><form method="post" class="form-grid"><input name="name" placeholder="Name" required><input name="specialty" placeholder="Specialty" required><input name="years_experience" type="number" min="0" placeholder="Experience"><textarea name="bio" placeholder="Bio"></textarea><button>Add Listener</button></form></section>
+<section class="card"><table><tr><th>Name</th><th>Specialty</th><th>Action</th></tr>{% for l in listeners %}<tr><td>{{ l.name }}</td><td>{{ l.specialty }}</td><td><form method="post" action="{{ url_for('admin_delete_listener', listener_id=l.id) }}"><button>Delete</button></form></td></tr>{% endfor %}</table></section>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="card">
+  <h1>Anonymous Group Chat</h1>
+  <div class="chat-box">
+    {% for m in messages %}
+      <p><b>{{ m.alias }}</b>: {{ m.message }} <small>{{ m.created_at|datefmt }}</small></p>
+    {% else %}<p>No messages yet.</p>{% endfor %}
+  </div>
+  <form method="post" class="form-grid">
+    <input name="alias" placeholder="Alias (optional)">
+    <textarea name="message" placeholder="Type your message..." required></textarea>
+    <button>Send</button>
+  </form>
+</section>
+{% endblock %}

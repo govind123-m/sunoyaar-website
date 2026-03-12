@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="card">
+  <h1>Complete Payment</h1>
+  <p>Booking #{{ booking.id }} | {{ booking.session_date }} {{ booking.session_time }} | ₹{{ amount }}</p>
+  <p>Pay via Google Pay UPI ID: <b>sunoyaar@okaxis</b></p>
+  <img class="qr" src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=upi://pay?pa=sunoyaar@okaxis&pn=SunoYaar&am={{ amount }}" alt="UPI QR" />
+  <form method="post" class="form-grid">
+    <input name="upi_transaction_id" placeholder="Enter UPI transaction ID" required>
+    <button>Confirm Payment</button>
+  </form>
+</section>
+{% endblock %}

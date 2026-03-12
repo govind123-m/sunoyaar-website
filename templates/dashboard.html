@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Your Dashboard</h1>
+<section class="card"><h2>Upcoming Sessions</h2>{% for b in upcoming %}<p>#{{ b.id }} | {{ b.session_date }} {{ b.session_time }} | {{ b.listener_name or 'Any listener' }} | {{ b.service_mode }}</p>{% else %}<p>No upcoming sessions.</p>{% endfor %}</section>
+<section class="card"><h2>Past Sessions</h2>{% for b in past %}<p>#{{ b.id }} | {{ b.session_date }} {{ b.session_time }} | {{ b.listener_name or 'Any listener' }}</p>{% else %}<p>No past sessions.</p>{% endfor %}</section>
+<section class="card"><h2>Payment History</h2>{% for p in payments %}<p>#{{ p.id }} | ₹{{ p.amount }} | {{ p.paid_at|datefmt }}</p>{% else %}<p>No payments yet.</p>{% endfor %}</section>
+<section class="card"><h2>Community</h2><a class="btn" href="{{ url_for('chat') }}">Open Anonymous Group Chat</a></section>
+{% endblock %}

@@ -1,0 +1,4 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>{% block title %}Admin - SunoYaar{% endblock %}</title><link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}"></head><body>
+<nav class="navbar"><a class="brand" href="{{ url_for('admin_dashboard') }}">Admin Panel</a><div class="nav-links"><a href="{{ url_for('admin_users') }}">Users</a><a href="{{ url_for('admin_listeners') }}">Listeners</a><a href="{{ url_for('admin_bookings') }}">Bookings</a><a href="{{ url_for('admin_payments') }}">Payments</a><a href="{{ url_for('admin_blogs') }}">Blogs</a><a href="{{ url_for('admin_logout') }}">Logout</a></div></nav>
+<main class="container">{% with messages = get_flashed_messages(with_categories=true) %}{% if messages %}{% for c,m in messages %}<div class="flash {{ c }}">{{ m }}</div>{% endfor %}{% endif %}{% endwith %}{% block content %}{% endblock %}</main>
+</body></html>
